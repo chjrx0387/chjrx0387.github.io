@@ -9,7 +9,7 @@
 <meta name="description" content="">
 <meta name="theme-color" content="#000">
 <title>Ruixiang Jiang&#39;s Blog</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1628262051555">
+<link rel="shortcut icon" href="/favicon.ico?v=1628262868247">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -180,7 +180,13 @@
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
-    <p class="site-author-name">Ruixiang Jiang&#39;s Blog</p>
+    <p class="site-author-name">Ruixiang Jiang</p>
+    
+    <div class="site-description right-motion">
+      
+        <p id="binft">你好呀！ \n 我是一个小萌新喔~</p>
+      
+    </div>
     
   </div>
   <div class="sidebar-item side-item-stat right-motion">
@@ -228,7 +234,7 @@
             </a>
           
             <a href="https://github.com/chjrx0387">
-              <i class="fa fa-github" title="GitHub"></i>
+              <i class="fa fa-github" title="点击访问我的GitHub"></i>
             </a>
           
             <a href="chjrx0387@gmail.com">
@@ -1232,8 +1238,22 @@
 &lt;p&gt;当然，我们为了让用户更加便捷，我们增加了图片拖拽功能。&lt;/p&gt;
 &lt;h2 id=&#34;如何插入一段漂亮的代码片&#34;&gt;如何插入一段漂亮的代码片&lt;/h2&gt;
 &lt;p&gt;去&lt;a href=&#34;https://mp.csdn.net/console/configBlog&#34;&gt;博客设置&lt;/a&gt;页面，选择一款你喜欢的代码片高亮样式，下面展示同样高亮的 &lt;code&gt;代码片&lt;/code&gt;.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;// An highlighted block
-var foo = &#39;bar&#39;;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import logging; logging.basicConfig(level=logging.INFO)
+import asyncio, os, json, time
+from datetime import datetime
+from aiohttp import web
+def index(request):
+    return web.Response(body=b&#39;&amp;lt;h1&amp;gt;Awesome&amp;lt;/h1&amp;gt;&#39;)
+@asyncio.coroutine
+def init(loop):
+    app = web.Application(loop=loop)
+    app.router.add_route(&#39;GET&#39;, &#39;/&#39;, index)
+    srv = yield from loop.create_server(app.make_handler(), &#39;127.0.0.1&#39;, 9000)
+    logging.info(&#39;server started at http://127.0.0.1:9000...&#39;)
+    return srv
+loop = asyncio.get_event_loop()
+loop.run_until_complete(init(loop))
+loop.run_forever()
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;生成一个适合你的列表&#34;&gt;生成一个适合你的列表&lt;/h2&gt;
 &lt;ul&gt;
@@ -1253,8 +1273,8 @@ var foo = &#39;bar&#39;;
 &lt;li&gt;项目3&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul class=&#34;contains-task-list&#34;&gt;
-&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-2332731&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-2332731&#34;&gt; 计划任务&lt;/label&gt;&lt;/li&gt;
-&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-1648562&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-1648562&#34;&gt; 完成任务&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-6141663&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-6141663&#34;&gt; 计划任务&lt;/label&gt;&lt;/li&gt;
+&lt;li class=&#34;task-list-item&#34;&gt;&lt;input class=&#34;task-list-item-checkbox&#34; checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-5895650&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-5895650&#34;&gt; 完成任务&lt;/label&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;创建一个表格&#34;&gt;创建一个表格&lt;/h2&gt;
 &lt;p&gt;一个简单的表格是这么创建的：&lt;/p&gt;
@@ -1328,12 +1348,6 @@ var foo = &#39;bar&#39;;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2 id=&#34;创建一个自定义列表&#34;&gt;创建一个自定义列表&lt;/h2&gt;
-&lt;p&gt;Markdown&lt;br&gt;
-:  Text-to-&lt;abbr title=&#34;超文本标记语言&#34;&gt;HTML&lt;/abbr&gt; conversion tool&lt;/p&gt;
-&lt;p&gt;Authors&lt;br&gt;
-:  John&lt;br&gt;
-:  Luke&lt;/p&gt;
 &lt;h2 id=&#34;如何创建一个注脚&#34;&gt;如何创建一个注脚&lt;/h2&gt;
 &lt;p&gt;一个具有注脚的文本。&lt;sup class=&#34;footnote-ref&#34;&gt;&lt;a href=&#34;#fn2&#34; id=&#34;fnref2&#34;&gt;[2]&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 &lt;h2 id=&#34;注释也是必不可少的&#34;&gt;注释也是必不可少的&lt;/h2&gt;
@@ -1347,62 +1361,6 @@ n\in\mathbb N&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;
 &lt;blockquote&gt;
 &lt;p&gt;你可以找到更多关于的信息 &lt;strong&gt;LaTeX&lt;/strong&gt; 数学表达式&lt;a href=&#34;http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&#34;新的甘特图功能丰富你的文章&#34;&gt;新的甘特图功能，丰富你的文章&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&#34;language-mermaid&#34;&gt;gantt
-        dateFormat  YYYY-MM-DD
-        title Adding GANTT diagram functionality to mermaid
-        section 现有任务
-        已完成               :done,    des1, 2014-01-06,2014-01-08
-        进行中               :active,  des2, 2014-01-09, 3d
-        计划一               :         des3, after des2, 5d
-        计划二               :         des4, after des3, 5d
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;关于 &lt;strong&gt;甘特图&lt;/strong&gt; 语法，参考 &lt;a href=&#34;https://mermaidjs.github.io/&#34;&gt;这儿&lt;/a&gt;,&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;uml-图表&#34;&gt;UML 图表&lt;/h2&gt;
-&lt;p&gt;可以使用UML图表进行渲染。 &lt;a href=&#34;https://mermaidjs.github.io/&#34;&gt;Mermaid&lt;/a&gt;. 例如下面产生的一个序列图：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-mermaid&#34;&gt;sequenceDiagram
-张三 -&amp;gt;&amp;gt; 李四: 你好！李四, 最近怎么样?
-李四--&amp;gt;&amp;gt;王五: 你最近怎么样，王五？
-李四--x 张三: 我很好，谢谢!
-李四-x 王五: 我很好，谢谢!
-Note right of 王五: 李四想了很长时间, 文字太长了&amp;lt;br/&amp;gt;不适合放在一行.
-
-李四--&amp;gt;&amp;gt;张三: 打量着王五...
-张三-&amp;gt;&amp;gt;王五: 很好... 王五, 你怎么样?
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;这将产生一个流程图。:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-mermaid&#34;&gt;graph LR
-A[长方形] -- 链接 --&amp;gt; B((圆))
-A --&amp;gt; C(圆角长方形)
-B --&amp;gt; D{菱形}
-C --&amp;gt; D
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;关于 &lt;strong&gt;Mermaid&lt;/strong&gt; 语法，参考 &lt;a href=&#34;https://mermaidjs.github.io/&#34;&gt;这儿&lt;/a&gt;,&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;flowchart流程图&#34;&gt;FLowchart流程图&lt;/h2&gt;
-&lt;p&gt;我们依旧会支持flowchart的流程图：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-mermaid&#34;&gt;flowchat
-st=&amp;gt;start: 开始
-e=&amp;gt;end: 结束
-op=&amp;gt;operation: 我的操作
-cond=&amp;gt;condition: 确认？
-
-st-&amp;gt;op-&amp;gt;cond
-cond(yes)-&amp;gt;e
-cond(no)-&amp;gt;op
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;关于 &lt;strong&gt;Flowchart流程图&lt;/strong&gt; 语法，参考 &lt;a href=&#34;http://adrai.github.io/flowchart.js/&#34;&gt;这儿&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;导出与导入&#34;&gt;导出与导入&lt;/h2&gt;
-&lt;h3 id=&#34;导出&#34;&gt;导出&lt;/h3&gt;
-&lt;p&gt;如果你想尝试使用此编辑器, 你可以在此篇文章任意编辑。当你完成了一篇文章的写作, 在上方工具栏找到 &lt;strong&gt;文章导出&lt;/strong&gt; ，生成一个.md文件或者.html文件进行本地保存。&lt;/p&gt;
-&lt;h3 id=&#34;导入&#34;&gt;导入&lt;/h3&gt;
-&lt;p&gt;如果你想加载一篇你写过的.md文件，在上方工具栏可以选择导入功能进行对应扩展名的文件导入，&lt;br&gt;
-继续你的创作。&lt;/p&gt;
 &lt;hr class=&#34;footnotes-sep&#34;&gt;
 &lt;section class=&#34;footnotes&#34;&gt;
 &lt;ol class=&#34;footnotes-list&#34;&gt;
@@ -1763,9 +1721,12 @@ email chjrx0387@gmail.com&lt;/p&gt;
 <script src="/media/js/mouse/love.js"></script>
 
 
+<script src="/media/js/cool.js"></script>
 
 
-<script src="https://cdn.jsdelivr.net/gh/lete114/CDN/Sum/sakura.js"></script>
+
+  <div class="snow-container"></div>
+  <script src="/media/js/bg/snow.js"></script>
 
 
 </html>
