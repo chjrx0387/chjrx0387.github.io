@@ -2121,11 +2121,11 @@ p > code {
       }.nav-item a:hover {
         color: #222;
       }.nav-item-active {
-      background: #f9f9f9cc;
+      background: #4263ebcc;
     }
 
     .nav-item:hover {
-      background: #f9f9f9cc;
+      background: #4263ebcc;
       color: rgba(0, 0, 0, 0.98);
     }.site-author-image {
       border-radius: 50%;
