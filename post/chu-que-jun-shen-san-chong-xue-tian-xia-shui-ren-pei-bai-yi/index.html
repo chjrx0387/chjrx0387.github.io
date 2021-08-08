@@ -8,7 +8,7 @@
 <meta name="keywords" content="chjrx0387">
 <meta name="description" content="">
 <meta name="theme-color" content="#000">
-<title>Ruixiang Jiang&#39;s Blog</title>
+<title>除却君身三重雪，天下谁人配白衣 | Ruixiang Jiang&#39;s Blog</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1628395165531">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -41,7 +41,8 @@
 
 
 
-  <meta name="description" content="">
+  <meta name="description" content="除却君身三重雪，天下谁人配白衣" />
+  <meta name="keywords" content="随笔" />
 </head>
 
 <body>
@@ -90,7 +91,7 @@
             
               
             
-            <li class="nav-item nav-item-active">
+            <li class="nav-item ">
               
               
                 <a href="/archives/" target="_self">
@@ -174,10 +175,25 @@
   <div class="main-continer">
     
     <div
-      class="section-layout  gemini">
+      class="section-layout gemini ">
       <div class="section-layout-wrapper">
-        <div id="sidebarMeta" class="sidebar">
-    
+        
+
+<div class="sidebar">
+  
+    <div class="sidebar-box box-shadow-wrapper bg-color right-motion" id="sidebar">
+      
+        <div class="post-list-sidebar">
+          <div class="sidebar-title">
+            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active language" data-lan="index">文章目录</span>
+            <span id="metaSideBar" class="sidebar-title-item language" data-lan="preview">站点概览</span>
+          </div>
+        </div>
+      
+      <div class="sidebar-body gemini" id="sidebar_body">
+        
+          
+            
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -256,97 +272,257 @@
   </div>
 
 </div>
+          
+        
+      </div>
+    </div>
+  
 </div>
 <script>
-  let sidebarMeta = document.querySelector('#sidebarMeta');
-  let scheme = 'gemini';
-  let sidebarWrapper = document.querySelector('.sidebar-wrapper');
-  if (sidebarMeta && (scheme === 'pisces' || scheme === 'gemini')) {
-    document.addEventListener('scroll', function(e) {
-      if (document.scrollingElement.scrollTop > parseInt(sidebarMeta.style.marginTop) + 10) {
-        sidebarWrapper.classList.add('home-sidebar-fixed')
-      } else {
-        sidebarWrapper.classList.remove('home-sidebar-fixed')
-      }
-    });
-  }
-  </script>
-        <div class="section-box box-shadow-wrapper">
-          <section class="section archives-section bg-color posts-expand">
-            
+  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
+  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
+  const SLIDE_UP_IN = 'slide-up-in';
 
-<div class="bg-color">
-  <div class="archive-timeline-box">
-    <div class="archive-timeline-title">
-      
-        <h2 class="language" data-lan="archives" data-count="3">非常好！目前共计3篇日志，继续努力！</h2>
-      
-    </div>
+  let sidebar = document.querySelector('#sidebar'),
+  tocSideBar = document.querySelector('#tocSideBar'),
+  metaSideBar = document.querySelector('#metaSideBar'),
+  postToc = document.querySelector('#post_toc'),
+  postSiteMeta = document.querySelector('#post_side_meta'),
+  sidebarTitle = document.querySelector('.sidebar-title'),
+  sidebarBody = document.querySelector('#sidebar_body');
+
+  tocSideBar && tocSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  metaSideBar && metaSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  function toggleSidebar(e) {
+    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
+    if (currentTitle == e.srcElement) {
+      return ;
+    }
+    let current, showElement, hideElement;
+    if (e.srcElement == metaSideBar) {
+      showElement = postSiteMeta;
+      hideElement = postToc;
+    } else if (e.srcElement == tocSideBar){
+      showElement = postToc;
+      hideElement = postSiteMeta;
+    }
+    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
+    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
+
+    jQuery.Velocity(hideElement, 'stop');
+    jQuery.Velocity(hideElement, 'transition.slideUpOut', {
+      display: 'none',
+      duration: 200,
+      complete: function () {
+        jQuery.Velocity(showElement, 'transition.slideDownIn', {
+          duration: 200
+        });
+      }
+    })
+    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
+    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
+  }
+
+  postToc && postToc.addEventListener('transitionend', function() {
+    this.classList.remove(SLIDE_UP_IN);
+  });
+
+  if (sidebarBody) {
+    if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
+      let hasFix = false;
+      let scrollEl = document.querySelector('.main-continer');
+      let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
+      window.addEventListener('scroll', function(e) {
+        if (document.scrollingElement.scrollTop >= limitTop) {
+          if (!hasFix) {
+            sidebar.classList.add('sidebar-fixed');
+            hasFix = true;
+          }
+        } else {
+          if (hasFix) {
+            sidebar.classList.remove('sidebar-fixed');
+            hasFix = false;
+          }
+        }
+      });
+    }
+  }
+  
+</script>
+        <div class="section-box box-shadow-wrapper">
+          <div class="section bg-color post post-page">
+            <section class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://blog.chjrx0387.top/post/chu-que-jun-shen-san-chong-xue-tian-xia-shui-ren-pei-bai-yi/">
+      除却君身三重雪，天下谁人配白衣
+    </a>
+  </h1>
+  <div class="post-meta">
     
-      
-      
-        <div class="node-title">
-          <h2 class="tag-year">2021</h2>
-        </div>    
-        
-      
-      <a href="https://blog.chjrx0387.top/post/chu-que-jun-shen-san-chong-xue-tian-xia-shui-ren-pei-bai-yi/">
-        <div class="motion-warpper tag-archive-node">
-          <div class="tag-node">
-            <h1>
-              08-08
-              <small>除却君身三重雪，天下谁人配白衣</small>
-            </h1>
-          </div>  
-      </div>
-      </a>
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span class="language" data-lan="publish">发布于</span>
+      <span class="publish-time" data-t="2021-08-08 11:19:11">2021-08-08</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
     
+    <span class="meta-item">
+      <i class="fa fa-folder-o"></i>
+      <span class="pc-show language" data-lan="category-in">分类于</span>
       
       
-      <a href="https://blog.chjrx0387.top/post/huan-ying-shi-yong-markdown-bian-ji-qi/">
-        <div class="motion-warpper tag-archive-node">
-          <div class="tag-node">
-            <h1>
-              08-04
-              <small>欢迎使用Markdown编辑器</small>
-            </h1>
-          </div>  
-      </div>
+      <a href="https://blog.chjrx0387.top/tag/FLxQhb7f_/">
+        <span>随笔</span>
       </a>
+      
+      
+    </span>
+    <span class="post-meta-divider">|</span>
     
-      
-      
-      <a href="https://blog.chjrx0387.top/post/pian-pian-ling-ling-hou-hao-hao-bai-nian-yue/">
-        <div class="motion-warpper tag-archive-node">
-          <div class="tag-node">
-            <h1>
-              08-04
-              <small>翩翩零零后，浩浩百年约</small>
-            </h1>
-          </div>  
-      </div>
-      </a>
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>6<span class="language" data-lan="minute">分钟</span></span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>1616<span class="pc-show language" data-lan="words">字数</span></span>
+    </span>
+    
+    
+    
+    <span id="/post/chu-que-jun-shen-san-chong-xue-tian-xia-shui-ren-pei-bai-yi/" data-flag-title="除却君身三重雪，天下谁人配白衣" class="meta-item pc-show leancloud_visitors">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-eye"></i>
+      <span><span class="language" data-lan="view">浏览量</span>：<span class="leancloud-visitors-count"></span></span>
+    </span>
     
   </div>
-  
-<div class="page bg-color">
-  <ul class="pagination-ul">
-    
-    
-      
-        <li class="pagination-li pagination-active">
-            <a href="/archives/page/../">
-              1
-            </a>
-        </li>
-      
-    
-    
-  </ul>
-</div>
-</div>
+</section>
+            <div class="post-body next-md-body" id="post_body">
+              <p>在安徽合肥，有一条延乔路，以陈延年、陈乔年命名；与之并行的是集贤路，纪念葬在安徽安庆集贤关的陈独秀。<br>
+延乔路短，集贤路长。他们没能汇合，却都通往了——繁华大道。</p>
+<!-- more -->
+<p>清末到民国，识字的人有多少？能上大学的又有多少？被抓了，关系铁的可以说清给钱就放的人，像那样的家庭又有多少？延乔兄弟出身的陈家，就是这样一个异常殷实的家庭，长辈曾是清廷的四品大员。即使清亡，以陈家的家底，延乔兄弟一生衣食无忧绝非难事。<br>
+但延乔兄弟，却与长辈们的愿望背道而驰。<br>
+小时候，兄弟俩就常常去庙里听革命党人的讲话，心中埋下救国救民的种子。待父亲陈独秀自日本归来，他们就远赴上海，进入上海法语补习学校半工半读。<br>
+上海是当时中国最繁华的大都市，有“东方巴黎”之美称，但这一切和延乔兄弟没什么关系，他们“食则夸饼，饮则自来水，冬仍衣袷，夏不张盖，与工人同做工”，以至于脸色憔悴，令人疼惜。叔祖母多次提出汇款自助他们，均被延年拒绝。乔年从小就和哥哥亲近，哥哥说一不二的性子，他当然知道，而哥哥“自创前程”的原则，他也认同。<br>
+兄弟俩之后考上震旦大学（今复旦大学），没读完就去了法国勤工俭学。在法国，两人结识了一批共产主义者，如周恩来等人，积极参与共产主义者的活动。1920年，兄弟两人参加了旅欧共产主义组织—中国少年共产党和法国共产党。1921年，中国共产党正式成立，陈独秀任中央局书记。1922年（20岁），陈乔年在法国发起成立旅欧中国少年共产党，同年转为中国共产党党员。兄弟两人与父亲，不约而同走上了同一条道路。<br>
+1925年，国共合作建立，国内革命形势空前髙涨，陈乔年回到北京，担任中共北方区委组织部长，协助李大钊和赵世炎领导北方的工农学生运动。1927年，陈乔年在中共五大上当选为中央委员，任中共中央组织部副部长。<br>
+不久，蒋介石发动“四一二”反革命政变，国共合作破裂。7月4日，哥哥陈延年被捕，被乱刀砍死。1928年2月16日，中共江苏省委在上海秘密召开会议，由陈乔年主持，结果由于叛徒告密，陈乔年被捕。狱中，敌人对陈乔年实施各种酷刑，但陈乔年一直咬紧牙关，不屈不挠。生性乐观的他，在狱中还一直积极鼓励大家。1928年6月6日，陈乔年在龙华的枫林桥畔被处死，年仅26岁。<br>
+<img src="https://blog.chjrx0387.top/post-images/1628394414931.png" alt="" loading="lazy"><br>
+<img src="https://blog.chjrx0387.top/post-images/1628394315293.webp" alt="" loading="lazy"><br>
+延年去世后，同事们都很怀念他。他们最知道延年是怎样的人。<br>
+延年一生未婚，把生命中大部分的时间都给了工作。有人形容“陈延年工作夜以继日，就像一头不知疲倦的老黄牛。”他平时沉默寡言，但在研究和讨论理论问题时，却常常和别人争得面红耳赤，如同猛狮。因为他的偶像是列宁，他要和列宁一样，对理论和原则绝不含糊。有同事朋友不忍他孤独，催他结婚，给他介绍对象，却都被挡回来。但有同志因男女关系闹矛盾，延年却总能动之以情晓之以理，轻松帮忙化解。他有谈恋爱的情商，却没有给自己谈恋爱的机会。别人结婚，他出让房子。别人生孩子，他嘱咐下属这个月给这位同事多发些津贴。他对得起所有人，唯独在生活上对不起自己。自立六不原则，过着苦行僧般的生活。“不闲游、不看戏、不照相、不下馆子、不讲衣着、不作私交。”如果不是专门查回忆录去了解真正的延年，很难想象世上会有如此无私自律的人。<br>
+延年牺牲，最受打击的是乔年。延年去世后，乔年变了，那个活泼开朗的乔年消失了，留下了一个不会笑的乔年。之前的乔年，被女同志夸眼睛可爱，皮肤白皙，脸颊总是红红的，有人叫他苹果，还时常冒出些孩子气。尤其是遇到之前在法国一起勤工俭学的同学，玩闹到床上打滚的时候都有。但一提到工作，却又变得严肃认真，面对危险，也绝不退缩。 1926年，日本军舰驶入中国大沽口挑衅，刘和珍和同学们上街示威，后来被段祺瑞的士兵打死。陈乔年也参加了那场运动，被刺刀戳中，差一点就刺伤心脏。他去医院上完药，没过几天，又开始在外活动。<br>
+刚逃离一场危险，又把自己置身于下一场危险里。哥哥延年如此，弟弟也是如此。<br>
+离开前，他留给这个世界的最后一句话，事关他和哥哥的理想，更事关你我——“让我们的子孙后代享受前人披荆斩棘的幸福吧!”<br>
+在安徽合肥，有一条路叫延乔路，路的尽头是“繁华大道”。<br>
+<img src="https://blog.chjrx0387.top/post-images/1628395157533.png" alt="" loading="lazy"><br>
+这么多年了，世界还是那个世界，但中国却早已不是那个任人随意拿捏的软柿子。多想告诉延年乔年，你们当年的理想，中国正一步步实现。明年的中国，会给你们带来更好的消息。<br>
+这盛世，如您所愿。<br>
+很多人因为《觉醒年代》才认识他们，有人上网催续集——其实我们就活在续集里。<br>
+<img src="https://blog.chjrx0387.top/post-images/1628395009317.webp" alt="" loading="lazy"><br>
+有些人为写好续集，提前走了，但只要我们没忘记，他们就永远都在。<br>
+皖水龙山出俊豪，陈门两代逞天骄。<br>
+长兄慷慨油汤赴，大弟从容烈火蹈。<br>
+昆仲成仁先论定，乃翁评价待推敲。<br>
+松年一曲艰辛史，闻者谁人不泪抛？</p>
 
-          </section>
+            </div>
+            
+            
+              <div class="post-footer">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong class="language" data-lan="author">本文作者：</strong>
+      Ruixiang Jiang
+    </li>
+    <li class="post-copyright-link">
+      <strong class="language" data-lan="link">本文链接：</strong>
+      <a href="https://blog.chjrx0387.top/post/chu-que-jun-shen-san-chong-xue-tian-xia-shui-ren-pei-bai-yi/" title="除却君身三重雪，天下谁人配白衣">https://blog.chjrx0387.top/post/chu-que-jun-shen-san-chong-xue-tian-xia-shui-ren-pei-bai-yi/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong class="language" data-lan="copyright">版权声明： </strong>
+      本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i> BY-NC-SA</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+  <div class="tags">
+    
+      <a href="https://blog.chjrx0387.top/tag/FLxQhb7f_/"># 随笔</a>
+    
+  </div>
+  <div class="nav">
+    <div class="nav-prev">
+      
+    </div>
+    <div class="nav-next">
+      
+        <a class="nav-pc-next" title="欢迎使用Markdown编辑器" href="https://blog.chjrx0387.top/post/huan-ying-shi-yong-markdown-bian-ji-qi/">欢迎使用Markdown编辑器</a>
+        <a class="nav-mobile-next" title="欢迎使用Markdown编辑器" href="https://blog.chjrx0387.top/post/huan-ying-shi-yong-markdown-bian-ji-qi/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
+      
+    </div>
+  </div>
+</div>
+            
+            
+  <script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<div id="vcomments" style="padding: 10px 0px 0px 0px"></div>
+
+<style>
+  .v .veditor {
+    min-height: 10rem;
+    background-image: url('');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-color: rgba(255, 255, 255, 0);
+    resize: none;
+  }
+
+  .v .vwrap {
+    border: 1px solid #000 !important;
+  }
+
+  .v .vbtn {
+    padding: .4rem 1.2rem !important;
+    border-color: #fff !important;
+    background-color: #49b1f5 !important;
+    color: #fff !important;
+    font-size: .7rem !important;
+  }
+
+  .v .vcards .vcard .vh .vmeta .vat {
+    padding: 0 .8rem !important;
+    border: 1px solid #00c4b6 !important;
+    border-radius: 5px !important;
+    color: #00c4b6 !important;
+  }
+</style>
+<script>
+  new Valine({
+    el: '#vcomments',
+    appId: 'OXiyGYNimxTOtcDY2HTI7039-gzGzoHsz',
+    appKey: 'cmIR9DXJWRbFQBXHVBEWl9aT',
+    avatar: '',
+    placeholder: '请在此输入评论',
+    pageSize: '',
+    lang: 'zh-cn',
+    enableQQ: 'true' === 'false',
+    visitor: 'true' === 'true',
+    highlight: 'true' === 'true',
+    avatarForce: 'true' === 'false',
+  });
+</script>
+
+          </div>
         </div>
       </div>
     </div>
@@ -1145,6 +1321,223 @@
   })
 </script>
 
+    <div class="reward-mask" style="display: none;">
+  <div class="reward-relative">
+    <span class="close" aria-hidden="true">x</span>
+    <div class="reward-body">
+      <h2>感谢您的支持，我会继续努力的!</h2>
+      <div class="reward-img-box">
+        <div style="position: relative; width: 140px; height: 140px;">
+          
+          
+          
+        </div>
+      </div>
+      <p class="reward-word">扫码打赏，你说多少就多少</p>
+      <p class="reward-tip">打开微信扫一扫，即可进行扫码打赏哦</p>
+    </div>
+    <div class="bottom">
+      
+      
+    </div>
+  </div>
+</div>
+<style>
+  .reward-mask {
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #00000054;
+  }
+
+  .reward-relative {
+    position: relative;
+    width: 480px;
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 5px;
+    background-color: #fff;
+    top: 50%;
+    margin-top: -205px;
+  }
+
+  .reward-relative .close {
+    position: absolute;
+    right: 10px;
+    font-weight: normal;
+    font-size: 16px;
+    color: #929292;
+  }
+
+  .reward-body {
+    padding: 40px 20px 20px;
+  }
+
+  .bottom {
+    display: flex;
+  }
+
+  .reward-btn {
+    text-align: center;
+  }
+
+  .reward-btn-text {
+    display: inline-block;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 50%;
+    background-color: #ff9734;
+    color: #FFF;
+    margin-top: 20px;
+  }
+
+  .pay-text {
+    margin-top: 10px;
+    padding: 10px;
+    flex: 1;
+    transition: all .2s linear;
+  }
+
+  .pay-text:hover {
+    background-color: #a5a5a536;
+  }
+
+  .reward-body h2 {
+    padding-top: 10px;
+    text-align: center;
+    color: #a3a3a3;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0 0 20px;
+  }
+
+  .reward-body h2:after,
+  .reward-body h2:before {
+    font-family: Arial, Helvetica, sans-serif;
+    background: 0 0;
+    width: 0;
+    height: 0;
+    font-style: normal;
+    color: #eee;
+    font-size: 80px;
+    position: absolute;
+    top: 20px;
+  }
+
+  .reward-body h2:before {
+    content: '\201c';
+    left: 50px;
+  }
+
+  .reward-body h2:after {
+    content: '\201d';
+    right: 80px;
+  }
+
+  .reward-img-box {
+    display: inline-block;
+    padding: 10px;
+    border: 6px solid #ea5f00;
+    margin: 0 auto;
+    border-radius: 3px;
+    position: relative;
+  }
+
+  .reward-img {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (max-width: 767px) {
+    .reward-relative {
+      height: 100%;
+      top: 0px;
+      margin-top: 0;
+      width: auto;
+    }
+
+    .reward-relative .bottom {
+      flex-direction: column;
+    }
+
+    .reward-relative .pay-text {
+      width: 80%;
+      margin: 5px auto;
+      border: 1px solid silver;
+      padding: 6px;
+      border-radius: 4px;
+    }
+
+    .reward-body h2:after {
+      right: 40px;
+    }
+
+    .reward-body h2:after,
+    .reward-body h2:before {
+      font-size: 60px;
+    }
+
+    .reward-body h2:before {
+      left: 20px;
+    }
+  }
+</style>
+<script>
+  !function () {
+    var mask = document.querySelector('.reward-mask');
+    let close = document.querySelector('.reward-relative .close');
+    let rewardBtn = document.querySelector('.reward-btn');
+
+    let zfb = document.querySelector('#zfb'),
+      wx = document.querySelector('#wx'),
+      zfbBtn = document.querySelector('#zfbBtn'),
+      wxBtn = document.querySelector('#wxBtn');
+
+    if (zfbBtn && wxBtn) {
+      zfbBtn.addEventListener('click', () => {
+        jQuery.Velocity(zfb, 'transition.slideLeftIn', {
+          duration: 400
+        });
+        jQuery.Velocity(wx, 'transition.slideRightOut', {
+          display: 'none',
+          duration: 400
+        });
+      });
+
+      wxBtn.addEventListener('click', () => {
+        jQuery.Velocity(wx, 'transition.slideRightIn', {
+          duration: 400
+        });
+        jQuery.Velocity(zfb, 'transition.slideLeftOut', {
+          display: 'none',
+          duration: 400
+        });
+      });
+    }
+
+    rewardBtn.addEventListener('click', (e) => {
+      jQuery.Velocity(mask, 'transition.slideDownIn', {
+        duration: 400
+      })
+    });
+
+    close.addEventListener('click', (e) => {
+      e.preventDefault();
+      jQuery.Velocity(mask, 'transition.slideUpOut', {
+        duration: 400
+      })
+    })
+  }()
+</script>
+
   </div>
 </body>
 
@@ -1738,6 +2131,5 @@ email chjrx0387@gmail.com&lt;/p&gt;
 
   <div class="snow-container"></div>
   <script src="/media/js/bg/snow.js"></script>
-
 
 </html>
