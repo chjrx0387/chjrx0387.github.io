@@ -2,13 +2,22 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.chjrx0387.top</id>
     <title>Ruixiang Jiang&apos;s Blog</title>
-    <updated>2021-08-08T03:59:44.857Z</updated>
+    <updated>2021-11-29T14:18:30.682Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.chjrx0387.top"/>
     <link rel="self" href="https://blog.chjrx0387.top/atom.xml"/>
     <logo>https://blog.chjrx0387.top/images/avatar.png</logo>
     <icon>https://blog.chjrx0387.top/favicon.ico</icon>
     <rights>All rights reserved 2021, Ruixiang Jiang&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[Help documentation of Othello]]></title>
+        <id>https://blog.chjrx0387.top/post/help-documentation-of-othello/</id>
+        <link href="https://blog.chjrx0387.top/post/help-documentation-of-othello/">
+        </link>
+        <updated>2021-11-29T13:20:28.000Z</updated>
+        <content type="html"><![CDATA[<p>本文档由黑魔道士（中国黑白棋联盟论坛）著，电子书由联盟会员 xvbwily 整理。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[除却君身三重雪，天下谁人配白衣]]></title>
         <id>https://blog.chjrx0387.top/post/chu-que-jun-shen-san-chong-xue-tian-xia-shui-ren-pei-bai-yi/</id>
@@ -142,8 +151,8 @@ loop.run_forever()
 <li>项目3</li>
 </ol>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-5556379"><label class="task-list-item-label" for="task-item-5556379"> 计划任务</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7614172"><label class="task-list-item-label" for="task-item-7614172"> 完成任务</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-6963178"><label class="task-list-item-label" for="task-item-6963178"> 计划任务</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2427556"><label class="task-list-item-label" for="task-item-2427556"> 完成任务</label></li>
 </ul>
 <h2 id="创建一个表格">创建一个表格</h2>
 <p>一个简单的表格是这么创建的：</p>
