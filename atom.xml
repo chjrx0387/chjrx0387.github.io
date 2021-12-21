@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.chjrx0387.top</id>
     <title>Ruixiang Jiang&apos;s Blog</title>
-    <updated>2021-11-29T14:31:21.627Z</updated>
+    <updated>2021-12-21T09:45:19.169Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.chjrx0387.top"/>
     <link rel="self" href="https://blog.chjrx0387.top/atom.xml"/>
@@ -15,7 +15,33 @@
         <link href="https://blog.chjrx0387.top/post/help-documentation-of-othello/">
         </link>
         <updated>2021-11-29T13:20:28.000Z</updated>
-        <content type="html"><![CDATA[<p><a href="https://github.com/chjrx0387/images/raw/main/Help%20Othello.docx">本文档</a>由黑魔道士（中国黑白棋联盟论坛）著，电子书由联盟会员 xvbwily 整理。</p>
+        <content type="html"><![CDATA[<p>本文档是黑白棋项目的帮助文档。</p>
+<h3 id="启动器">启动器</h3>
+<p><img src="https://blog.chjrx0387.top/post-images/1640077222074.png" alt="" loading="lazy"><br>
+包含功能：</p>
+<ul>
+<li>模式选择<br>
+你可以选择PVE模式、PVP模式和局域网模式。</li>
+<li>访问论坛<br>
+这是一个拥有大量活跃的黑白棋玩家的论坛，你可以在这里发帖交流。</li>
+<li>读取存档<br>
+上一把游戏没打完？不要紧，读取存档，现在继续！</li>
+</ul>
+<h3 id="模式选择">模式选择</h3>
+<p>包含功能：</p>
+<ul>
+<li>新的游戏<br>
+这是人机游戏，默认为你选择黑子且难度为初级，你可以在游戏的设置页面自行调整为你喜欢的样子。本游戏难度共100级，初级为32，中级为64，高级为90。黑子默认先手。<br>
+请给你的游戏和你自己各起一个名字！若留空则无法在排行榜记录你的成绩。</li>
+<li>好友对战<br>
+和你的好友在一台设备进行对战！类似的，你的游戏、你自己和你的对手都需要一个名字。</li>
+<li>局域联机<br>
+局域网内，两台设备联机对战！</li>
+</ul>
+<h3 id="游戏界面介绍">游戏界面介绍</h3>
+<p>我们将棋盘的主题定为Win7扫雷界面，共 $ 8*8 $ 个格子，<br>
+欢迎查阅<a href="https://github.com/chjrx0387/images/raw/main/Help%20Othello.docx">黑白棋四十二章经</a>由黑魔道士（中国黑白棋联盟论坛）著，电子书由联盟会员 xvbwily 整理。<br>
+该教程可以帮助你适应进阶的难度。</p>
 ]]></content>
     </entry>
     <entry>
@@ -151,8 +177,8 @@ loop.run_forever()
 <li>项目3</li>
 </ol>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-9678017"><label class="task-list-item-label" for="task-item-9678017"> 计划任务</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-5144826"><label class="task-list-item-label" for="task-item-5144826"> 完成任务</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-3371898"><label class="task-list-item-label" for="task-item-3371898"> 计划任务</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7021218"><label class="task-list-item-label" for="task-item-7021218"> 完成任务</label></li>
 </ul>
 <h2 id="创建一个表格">创建一个表格</h2>
 <p>一个简单的表格是这么创建的：</p>
