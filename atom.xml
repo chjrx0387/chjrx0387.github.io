@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.chjrx0387.top</id>
     <title>Ruixiang Jiang&apos;s Blog</title>
-    <updated>2021-12-21T09:45:19.169Z</updated>
+    <updated>2021-12-27T11:47:13.690Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.chjrx0387.top"/>
     <link rel="self" href="https://blog.chjrx0387.top/atom.xml"/>
@@ -10,38 +10,69 @@
     <icon>https://blog.chjrx0387.top/favicon.ico</icon>
     <rights>All rights reserved 2021, Ruixiang Jiang&apos;s Blog</rights>
     <entry>
-        <title type="html"><![CDATA[Help documentation of Othello]]></title>
+        <title type="html"><![CDATA[Help document of Othello]]></title>
         <id>https://blog.chjrx0387.top/post/help-documentation-of-othello/</id>
         <link href="https://blog.chjrx0387.top/post/help-documentation-of-othello/">
         </link>
         <updated>2021-11-29T13:20:28.000Z</updated>
         <content type="html"><![CDATA[<p>本文档是黑白棋项目的帮助文档。</p>
 <h3 id="启动器">启动器</h3>
-<p><img src="https://blog.chjrx0387.top/post-images/1640077222074.png" alt="" loading="lazy"><br>
+<p><img src="https://blog.chjrx0387.top/post-images/1640603586490.jpg" alt="" loading="lazy"><br>
+该启动器默认打开游戏-人机界面。<br>
 包含功能：</p>
 <ul>
+<li>帮助<br>
+点击左上角Logo即可打开本文档。</li>
 <li>模式选择<br>
-你可以选择PVE模式、PVP模式和局域网模式。</li>
-<li>访问论坛<br>
-这是一个拥有大量活跃的黑白棋玩家的论坛，你可以在这里发帖交流。</li>
+您可以选择人机模式、双人模式和局域网模式。</li>
 <li>读取存档<br>
-上一把游戏没打完？不要紧，读取存档，现在继续！</li>
+您可以获得每一个玩家的数据记录或查看玩家排行榜。另外，您可以保存至多5个未完成的游戏，并随时继续开始。</li>
+<li>主题商店<br>
+我们为您提供了三个主题：Touhou（默认)、Classic、Minecraft，每个主题都有不同样式的棋盘、头像和背景音效。快选择您最喜欢的主题吧！</li>
 </ul>
-<h3 id="模式选择">模式选择</h3>
+<h3 id="游戏">游戏</h3>
 <p>包含功能：</p>
 <ul>
-<li>新的游戏<br>
-这是人机游戏，默认为你选择黑子且难度为初级，你可以在游戏的设置页面自行调整为你喜欢的样子。本游戏难度共100级，初级为32，中级为64，高级为90。黑子默认先手。<br>
-请给你的游戏和你自己各起一个名字！若留空则无法在排行榜记录你的成绩。</li>
-<li>好友对战<br>
-和你的好友在一台设备进行对战！类似的，你的游戏、你自己和你的对手都需要一个名字。</li>
-<li>局域联机<br>
+<li>人机<br>
+这是人机游戏，请给您的游戏和您自己各起一个名字！您可以点击按钮切换执棋颜色和难度，默认黑棋先手，难度分为四级。您可以点击头像框以切换您喜欢的头像，然后点击“开始游戏”。<br>
+请注意用户名不能包含特殊字符，尽量以大写英文字母开头。<br>
+该界面预览图见本文顶端。</li>
+<li>双人<br>
+和您的好友在一台设备进行对战！类似的，您的游戏、您自己和您的对手都需要一个名字。您和您的对手都可以选择喜欢的头像。<br>
+<img src="https://blog.chjrx0387.top/post-images/1640604383110.jpg" alt="" loading="lazy"></li>
+<li>远程<br>
 局域网内，两台设备联机对战！</li>
 </ul>
-<h3 id="游戏界面介绍">游戏界面介绍</h3>
-<p>我们将棋盘的主题定为Win7扫雷界面，共 $ 8*8 $ 个格子，<br>
-欢迎查阅<a href="https://github.com/chjrx0387/images/raw/main/Help%20Othello.docx">黑白棋四十二章经</a>由黑魔道士（中国黑白棋联盟论坛）著，电子书由联盟会员 xvbwily 整理。<br>
-该教程可以帮助你适应进阶的难度。</p>
+<h3 id="读取">读取</h3>
+<p>包含功能：</p>
+<ul>
+<li>用户<br>
+输入用户名后查询您的专属战斗数据！将显示您最后一次更换的头像。<br>
+<img src="https://blog.chjrx0387.top/post-images/1640604557529.jpg" alt="" loading="lazy"><br>
+<img src="https://blog.chjrx0387.top/post-images/1640604579150.jpg" alt="" loading="lazy"></li>
+<li>读档<br>
+我们为您提供了5个存档槽，鼠标悬停时可显示棋盘预览图，若对局尚未结束则可以点击存档按钮继续游戏。<br>
+<img src="https://blog.chjrx0387.top/post-images/1640604799931.jpg" alt="" loading="lazy"></li>
+<li>排行</li>
+</ul>
+<h3 id="游戏界面">游戏界面</h3>
+<p><img src="https://blog.chjrx0387.top/post-images/1640604943343.jpg" alt="" loading="lazy"><br>
+包含功能：</p>
+<ul>
+<li>音效</li>
+<li>实时显示落子记录</li>
+<li>悔棋</li>
+<li>显示耗时</li>
+<li>预览翻转后棋盘<br>
+当您把鼠标悬停于一个可行位置时，会自动预览翻转后的棋盘，如下图所示。<br>
+<img src="https://blog.chjrx0387.top/post-images/1640605346292.jpg" alt="" loading="lazy"><br>
+<img src="https://blog.chjrx0387.top/post-images/1640605349919.jpg" alt="" loading="lazy"></li>
+<li>作弊模式<br>
+打开此功能后，您可以用任意颜色棋子在任意位置落子（若有棋子则替换）。点击右上方的棋子按钮即可切换颜色。注意！开启作弊模式后该游戏不会计入排行榜。开启后效果如下图所示。<br>
+<img src="https://blog.chjrx0387.top/post-images/1640605564416.jpg" alt="" loading="lazy"><br>
+<img src="https://blog.chjrx0387.top/post-images/1640605568681.jpg" alt="" loading="lazy"></li>
+</ul>
+<p>如果您希望提升黑白棋水平，欢迎查阅<a href="https://github.com/chjrx0387/images/raw/main/Help%20Othello.docx">黑白棋四十二章经</a>由黑魔道士（中国黑白棋联盟论坛）著，电子书由联盟会员 xvbwily 整理。该教程可以帮助你适应进阶的难度。</p>
 ]]></content>
     </entry>
     <entry>
@@ -177,8 +208,8 @@ loop.run_forever()
 <li>项目3</li>
 </ol>
 <ul class="contains-task-list">
-<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-3371898"><label class="task-list-item-label" for="task-item-3371898"> 计划任务</label></li>
-<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7021218"><label class="task-list-item-label" for="task-item-7021218"> 完成任务</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-5884077"><label class="task-list-item-label" for="task-item-5884077"> 计划任务</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-4383337"><label class="task-list-item-label" for="task-item-4383337"> 完成任务</label></li>
 </ul>
 <h2 id="创建一个表格">创建一个表格</h2>
 <p>一个简单的表格是这么创建的：</p>
