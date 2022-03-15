@@ -8,7 +8,7 @@
 <meta name="keywords" content="chjrx0387">
 <meta name="description" content="">
 <meta name="theme-color" content="#000">
-<title>Help document of Othello | Ruixiang Jiang&#39;s Blog</title>
+<title>Comment on neuromorphic completeness | Ruixiang Jiang&#39;s Blog</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1647304698088">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -41,7 +41,7 @@
 
 
 
-  <meta name="description" content="Help document of Othello" />
+  <meta name="description" content="Comment on neuromorphic completeness" />
   <meta name="keywords" content="" />
 </head>
 
@@ -193,8 +193,7 @@
       <div class="sidebar-body gemini" id="sidebar_body">
         
           
-            <div class="post-side-meta" id="post_side_meta">
-              
+            
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -273,202 +272,6 @@
   </div>
 
 </div>
-            </div>
-            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
-              <div class="toc-box right-motion">
-  <div class="toc-wrapper auto-number auto"
-    id="toc_wrapper">
-    <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#%E5%90%AF%E5%8A%A8%E5%99%A8">启动器</a></li>
-<li><a href="#%E6%B8%B8%E6%88%8F">游戏</a></li>
-<li><a href="#%E8%AF%BB%E5%8F%96">读取</a></li>
-<li><a href="#%E6%B8%B8%E6%88%8F%E7%95%8C%E9%9D%A2">游戏界面</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-  </div>
-</div>
-
-<script>
-
-  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
-  let active = 'active-show', activeClass = 'active-current';
-  let tocWrapper = document.querySelector('#toc_wrapper');
-  let tocContent = tocWrapper.children[0];
-  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
-
-  function addTocNumber(elem, deep) {
-    if (!elem) {
-      return;
-    }
-    let prop = elem.__proto__;
-
-    if (prop === HTMLUListElement.prototype) {
-      for (let i = 0; i < elem.children.length; i++) {
-        addTocNumber(elem.children[i], deep + (i + 1) + '.');
-      }
-    } else if (prop === HTMLLIElement.prototype) {
-      // 保存li元素
-      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
-        lList.push(elem);
-      }
-      for (let i = 0; i < elem.children.length; i++) {
-        let cur = elem.children[i];
-        if (cur.__proto__ === HTMLAnchorElement.prototype) {
-          if (autoNumber) {
-            cur.text = deep + ' ' + cur.text;
-          }
-        } else if (cur.__proto__ === HTMLUListElement.prototype) {
-          addTocNumber(cur, deep);
-        }
-      }
-    }
-  }
-
-  function removeParentActiveClass() {
-    let parents = tocContent.querySelectorAll('.' + active)
-    parents.forEach(function (elem) {
-      elem.classList.remove(active);
-    });
-  }
-
-  function addActiveClass(index) {
-    if (index >= 0 && index < hList.length) {
-      lList[index].classList.add(activeClass);
-    }
-  }
-
-  function removeActiveClass(index) {
-    if (index >= 0 && index < hList.length) {
-      lList[index].classList.remove(activeClass);
-    }
-  }
-
-  function addActiveLiElemment(elem, parent) {
-    if (!elem || elem === parent) {
-      return;
-    } else {
-      if (elem.__proto__ === HTMLLIElement.prototype) {
-        elem.classList.add(active);
-      }
-      addActiveLiElemment(elem.parentElement, parent);
-    }
-  }
-
-  function showToc() {
-    if (tocWrapper) {
-      postBody = document.querySelector('#post_body');
-      for (let i = 0; i < postBody.children.length; i++) {
-        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
-          hList.push(postBody.children[i]);
-        }
-      }
-      if (tocWrapper.classList.contains('compress')) {
-        tocContent.classList.add('closed');
-      } else if (tocWrapper.classList.contains('no_compress')) {
-        tocContent.classList.add('expanded');
-      } else {
-        if (hList.length > 10) {
-          active = 'active-hidden'
-          tocContent.classList.add('closed');
-        } else {
-          tocContent.classList.add('expanded');
-        }
-      }
-    }
-  }
-
-  (function () {
-    // 处理不是从#一级标题开始目录
-    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
-      let con = tocContent.children[0].children[0];
-      tocContent.innerHTML = con.innerHTML;
-    }
-    let markdownItTOC = document.querySelector('.markdownIt-TOC');
-    let innerHeight = window.innerHeight;
-    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
-    addTocNumber(tocContent, '');
-  })();
-
-  document.addEventListener('scroll', function (e) {
-    if (lList.length <= 0) {
-      return;
-    }
-    let scrollTop = document.scrollingElement.scrollTop + 10;
-    let dir;
-
-    if (lastTop - scrollTop > 0) {
-      dir = 'up';
-    } else {
-      dir = 'down';
-    }
-
-    lastTop = scrollTop;
-    if (scrollTop <= 0) {
-      if (lastIndex >= 0 && lastIndex < hList.length) {
-        lList[lastIndex].classList.remove(activeClass);
-      }
-      return;
-    }
-
-    let current = 0, hasFind = false;
-    for (let i = 0; i < hList.length; i++) {
-      if (hList[i].offsetTop > scrollTop) {
-        current = i;
-        hasFind = true;
-        break;
-      }
-    }
-    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
-      current = hList.length - 1;
-    } else {
-      current--;
-    }
-    if (dir === 'down') {
-      if (current > lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex)
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
-      }
-    } else {
-      if (current < lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex);
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
-      }
-    }
-  });
-
-
-  window.addEventListener('load', function () {
-    showToc();
-    document.querySelector('#sidebar').style = 'display: block;';
-    tocWrapper.classList.add('toc-active');
-    setTimeout(function () {
-      if ("createEvent" in document) {
-        let evt = document.createEvent("HTMLEvents");
-        evt.initEvent("scroll", false, true);
-        document.dispatchEvent(evt);
-      }
-      else {
-        document.fireEvent("scroll");
-      }
-    }, 500)
-  })
-
-</script>
-            </div>
           
         
       </div>
@@ -556,8 +359,8 @@
           <div class="section bg-color post post-page">
             <section class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://blog.chjrx0387.top/post/help-documentation-of-othello/">
-      Help document of Othello
+    <a class="post-title-link" href="https://blog.chjrx0387.top/post/comment-on-neuromorphic-completeness/">
+      Comment on neuromorphic completeness
     </a>
   </h1>
   <div class="post-meta">
@@ -565,23 +368,23 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2021-11-29 21:20:28">2021-11-29</span>
+      <span class="publish-time" data-t="2022-03-15 08:37:42">2022-03-15</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>3<span class="language" data-lan="minute">分钟</span></span>
+      <span>0<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>654<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>0<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
     
     
-    <span id="/post/help-documentation-of-othello/" data-flag-title="Help document of Othello" class="meta-item pc-show leancloud_visitors">
+    <span id="/post/comment-on-neuromorphic-completeness/" data-flag-title="Comment on neuromorphic completeness" class="meta-item pc-show leancloud_visitors">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-eye"></i>
       <span><span class="language" data-lan="view">浏览量</span>：<span class="leancloud-visitors-count"></span></span>
@@ -590,64 +393,7 @@
   </div>
 </section>
             <div class="post-body next-md-body" id="post_body">
-              <p>本文档是黑白棋项目的帮助文档。</p>
-<h3 id="启动器">启动器</h3>
-<p><img src="https://blog.chjrx0387.top/post-images/1640603586490.jpg" alt="" loading="lazy"><br>
-该启动器默认打开游戏-人机界面。<br>
-包含功能：</p>
-<ul>
-<li>帮助<br>
-点击左上角Logo即可打开本文档。</li>
-<li>模式选择<br>
-您可以选择人机模式、双人模式和局域网模式。</li>
-<li>读取存档<br>
-您可以获得每一个玩家的数据记录或查看玩家排行榜。另外，您可以保存至多5个未完成的游戏，并随时继续开始。</li>
-<li>主题商店<br>
-我们为您提供了三个主题：Touhou（默认)、Classic、Minecraft，每个主题都有不同样式的棋盘、头像和背景音效。快选择您最喜欢的主题吧！</li>
-</ul>
-<h3 id="游戏">游戏</h3>
-<p>包含功能：</p>
-<ul>
-<li>人机<br>
-这是人机游戏，请给您的游戏和您自己各起一个名字！您可以点击按钮切换执棋颜色和难度，默认黑棋先手，难度分为四级。您可以点击头像框以切换您喜欢的头像，然后点击“开始游戏”。<br>
-请注意用户名不能包含特殊字符，尽量以大写英文字母开头。<br>
-该界面预览图见本文顶端。</li>
-<li>双人<br>
-和您的好友在一台设备进行对战！类似的，您的游戏、您自己和您的对手都需要一个名字。您和您的对手都可以选择喜欢的头像。<br>
-<img src="https://blog.chjrx0387.top/post-images/1640604383110.jpg" alt="" loading="lazy"></li>
-<li>远程<br>
-局域网内，两台设备联机对战！</li>
-</ul>
-<h3 id="读取">读取</h3>
-<p>包含功能：</p>
-<ul>
-<li>用户<br>
-输入用户名后查询您的专属战斗数据！将显示您最后一次更换的头像。<br>
-<img src="https://blog.chjrx0387.top/post-images/1640604557529.jpg" alt="" loading="lazy"><br>
-<img src="https://blog.chjrx0387.top/post-images/1640604579150.jpg" alt="" loading="lazy"></li>
-<li>读档<br>
-我们为您提供了5个存档槽，鼠标悬停时可显示棋盘预览图，若对局尚未结束则可以点击存档按钮继续游戏。<br>
-<img src="https://blog.chjrx0387.top/post-images/1640604799931.jpg" alt="" loading="lazy"></li>
-<li>排行</li>
-</ul>
-<h3 id="游戏界面">游戏界面</h3>
-<p><img src="https://blog.chjrx0387.top/post-images/1640604943343.jpg" alt="" loading="lazy"><br>
-包含功能：</p>
-<ul>
-<li>音效</li>
-<li>实时显示落子记录</li>
-<li>悔棋</li>
-<li>显示耗时</li>
-<li>预览翻转后棋盘<br>
-当您把鼠标悬停于一个可行位置时，会自动预览翻转后的棋盘，如下图所示。<br>
-<img src="https://blog.chjrx0387.top/post-images/1640605346292.jpg" alt="" loading="lazy"><br>
-<img src="https://blog.chjrx0387.top/post-images/1640605349919.jpg" alt="" loading="lazy"></li>
-<li>作弊模式<br>
-打开此功能后，您可以用任意颜色棋子在任意位置落子（若有棋子则替换）。点击右上方的棋子按钮即可切换颜色。注意！开启作弊模式后该游戏不会计入排行榜。开启后效果如下图所示。<br>
-<img src="https://blog.chjrx0387.top/post-images/1640605564416.jpg" alt="" loading="lazy"><br>
-<img src="https://blog.chjrx0387.top/post-images/1640605568681.jpg" alt="" loading="lazy"></li>
-</ul>
-<p>如果您希望提升黑白棋水平，欢迎查阅<a href="https://github.com/chjrx0387/images/raw/main/Help%20Othello.docx">黑白棋四十二章经</a>由黑魔道士（中国黑白棋联盟论坛）著，电子书由联盟会员 xvbwily 整理。该教程可以帮助你适应进阶的难度。</p>
+              <figure data-type="image" tabindex="1"><img src="https://blog.chjrx0387.top/post-images/1647304694673.png" alt="" loading="lazy"></figure>
 
             </div>
             
@@ -660,7 +406,7 @@
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://blog.chjrx0387.top/post/help-documentation-of-othello/" title="Help document of Othello">https://blog.chjrx0387.top/post/help-documentation-of-othello/</a>
+      <a href="https://blog.chjrx0387.top/post/comment-on-neuromorphic-completeness/" title="Comment on neuromorphic completeness">https://blog.chjrx0387.top/post/comment-on-neuromorphic-completeness/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -673,15 +419,11 @@
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="Comment on neuromorphic completeness" href="https://blog.chjrx0387.top/post/comment-on-neuromorphic-completeness/">Comment on neuromorphic completeness</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="Comment on neuromorphic completeness" href="https://blog.chjrx0387.top/post/comment-on-neuromorphic-completeness/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="除却君身三重雪，天下谁人配白衣" href="https://blog.chjrx0387.top/post/chu-que-jun-shen-san-chong-xue-tian-xia-shui-ren-pei-bai-yi/">除却君身三重雪，天下谁人配白衣</a>
-        <a class="nav-mobile-next" title="除却君身三重雪，天下谁人配白衣" href="https://blog.chjrx0387.top/post/chu-que-jun-shen-san-chong-xue-tian-xia-shui-ren-pei-bai-yi/">下一篇</a>
+        <a class="nav-pc-next" title="Help document of Othello" href="https://blog.chjrx0387.top/post/help-documentation-of-othello/">Help document of Othello</a>
+        <a class="nav-mobile-next" title="Help document of Othello" href="https://blog.chjrx0387.top/post/help-documentation-of-othello/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
